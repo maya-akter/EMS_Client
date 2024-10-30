@@ -8,7 +8,7 @@ import { Button } from '../Styles/Button';
 import { FaUser } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
 
-
+let BASE_URL = "https://ems-client-zqv2.vercel.app";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Login = () => {
 
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/auth/login', user);
+            const response = await axios.post(`${BASE_URL}/api/auth/login`, user);
 
             if (response.data.success) {
                 alert('Success');
