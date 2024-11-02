@@ -51,9 +51,9 @@ export const columns = [
 
 
 
-const{BASE_URL} = useAuth();
+
  export const  fetchDepartments = async () => {
-    
+    const {BASE_URL} = useAuth;
    let departments = [];
     try {
         const response = await axios.get(`${BASE_URL}/api/department`, {
@@ -94,6 +94,7 @@ const{BASE_URL} = useAuth();
 //      return employees;
 //  } 
 export const getEmployees = async (id) => {
+    const {BASE_URL} = useAuth;
     let employees = [];
     try {
         const response = await axios.get(`${BASE_URL}/api/employee/department/${id}`, {
@@ -104,7 +105,7 @@ export const getEmployees = async (id) => {
         if (response.data.success) {
             employees = response.data.employees;
         }
-        console.log("Employee data fetched:", response.data); 
+        console.log("Employee data fetched:", response.data); // Log the response
     } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
             alert(error.response.data.error);
