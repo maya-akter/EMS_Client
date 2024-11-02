@@ -2,6 +2,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from "../Context/authContext";
 
 
 
@@ -50,11 +51,12 @@ export const columns = [
 
 
 
-
+const{BASE_URL} = useAuth();
  export const  fetchDepartments = async () => {
+    
    let departments = [];
     try {
-        const response = await axios.get('http://localhost:8000/api/department', {
+        const response = await axios.get(`${BASE_URL}/api/department`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
@@ -76,7 +78,7 @@ export const columns = [
 // export const getEmployees = async (id) => {
 //     let employees = [];
 //      try {
-//          const response = await axios.get(`http://localhost:8000/api/employee/department/${id}`, {
+//          const response = await axios.get(``${BASE_URL}/api/employee/department/${id}`, {
 //              headers: {
 //                  "Authorization": `Bearer ${localStorage.getItem('token')}`
 //              }
@@ -94,7 +96,7 @@ export const columns = [
 export const getEmployees = async (id) => {
     let employees = [];
     try {
-        const response = await axios.get(`http://localhost:8000/api/employee/department/${id}`, {
+        const response = await axios.get(`${BASE_URL}/api/employee/department/${id}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
@@ -102,7 +104,7 @@ export const getEmployees = async (id) => {
         if (response.data.success) {
             employees = response.data.employees;
         }
-        console.log("Employee data fetched:", response.data); // Log the response
+        console.log("Employee data fetched:", response.data); 
     } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
             alert(error.response.data.error);

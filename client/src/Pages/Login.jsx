@@ -8,11 +8,11 @@ import { Button } from '../Styles/Button';
 import { FaUser } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
 
-let BASE_URL = "https://ems-client-zqv2.vercel.app";
+
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login ,BASE_URL} = useAuth();
     const [error, setError] = useState(null);
     const [user, setUser] = useState({
         email: '',

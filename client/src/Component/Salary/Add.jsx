@@ -7,8 +7,10 @@ import { getEmployees } from "../../utils/EmployeeHelpers";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../Styles/Button";
+import { useAuth } from "../../Context/authContext";
 
 const Add = () => {
+    const {BASE_URL} = useAuth();
     const navigate = useNavigate();
     const [salary, setSalary] = useState({
         employeeId: null,
@@ -50,7 +52,7 @@ const Add = () => {
 
 
         try {
-            const response = await axios.post(`http://localhost:8000/api/salary/add`, salary, {
+            const response = await axios.post(`${BASE_URL}/api/salary/add`, salary, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

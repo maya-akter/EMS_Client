@@ -5,8 +5,10 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from "../../Context/authContext";
 
 const Add = () => {
+    const{BASE_URL} = useAuth();
     const navigate = useNavigate();
     const [departments, setDepartments] = useState([]);
     const [formData, setFromData] = useState({});
@@ -42,7 +44,7 @@ const Add = () => {
 
 
         try {
-            const response = await axios.post('http://localhost:8000/api/employee/add', formDataObj, {
+            const response = await axios.post(`${BASE_URL}/api/employee/add`, formDataObj, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

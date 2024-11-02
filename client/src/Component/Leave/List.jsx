@@ -8,12 +8,12 @@ import styled from "styled-components";
 
 const List = () => {
     let sno = 1;
-    const { user } = useAuth();
+    const { user,BASE_URL } = useAuth();
     const [leaves, setLeaves] = useState([]);
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/leave/${user._id}`, {
+            const response = await axios.get(`${BASE_URL}/api/leave/${user._id}`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

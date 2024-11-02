@@ -5,8 +5,10 @@ import { columns, EmployeeButtons } from "../../utils/EmployeeHelpers";
 import DataTable from "react-data-table-component";
 import Image from 'react-bootstrap/Image'
 import styled from "styled-components";
+import { useAuth } from "../../Context/authContext";
 
 const List = () => {
+    const{BASE_URL} = useAuth();
     const [employees, setEmployees] = useState([]);
     const [empLoading, setEmpLoading] = useState(false);
     const [filterdEmp,setFilterdEmp] = useState([]);
@@ -15,7 +17,7 @@ const List = () => {
         const fetchDepartments = async () => {
             setEmpLoading(true);
             try {
-                const response = await axios.get('http://localhost:8000/api/employee', {
+                const response = await axios.get(`${BASE_URL}/api/employee`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -33,7 +35,7 @@ const List = () => {
                             name: emp.userId ? emp.userId.name : 'N/A',
                             dob: emp.dob ? new Date(emp.dob).toLocaleDateString(): 'N/A',
                             // profileImage: emp.userId ? emp.userId.profileImage : '',
-                            profileImage:<Image className="emp_image_style " src={`http://localhost:8000/${emp.userId.profileImage}` } />,
+                            profileImage:<Image className="emp_image_style " src={`${BASE_URL}/${emp.userId.profileImage}` } />,
                             action: <EmployeeButtons Id={emp._id} />
                             
                         }

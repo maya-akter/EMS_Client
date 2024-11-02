@@ -6,8 +6,10 @@ import axios from "axios";
 
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useAuth } from "../../Context/authContext";
 
 const Edit = () => {
+    const {BASE_URL} = useAuth();
     const navigate = useNavigate();
     const [employee, setEmployee] = useState({
         name: '',
@@ -36,7 +38,7 @@ const Edit = () => {
         const fetchEmployee = async () => {
 
             try {
-                const response = await axios.get(`http://localhost:8000/api/employee/${id}`, {
+                const response = await axios.get(`${BASE_URL}/api/employee/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -84,7 +86,7 @@ const Edit = () => {
 
 
         try {
-            const response = await axios.put(`http://localhost:8000/api/employee/${id}`, employee, {
+            const response = await axios.put(`${BASE_URL}/api/employee/${id}`, employee, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

@@ -3,16 +3,17 @@ import SummeryCard from "./SummeryCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { useAuth } from "../../Context/authContext";
 
 
 const AdminSummery = () => {
-
+  const {BASE_URL} = useAuth();
    const [summary, setSummary] = useState(null);
 
    useEffect(() => {
       const fetchSummary = async () => {
          try {
-            const summary = await axios.get('http://localhost:8000/api/dashboard/summary', {
+            const summary = await axios.get(`${BASE_URL}/api/dashboard/summary`, {
                headers: {
                   "Authorization": `Bearer ${localStorage.getItem('token')}`
                }

@@ -8,13 +8,14 @@ import { createContext, useContext,useEffect,useState } from 'react';
 
 const userContext = createContext();
 const AuthContext = ({children})  =>{
+    const BASE_URL = `https://ems-client-zqv2.vercel.app`;
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
   useEffect(()=>{
      const verifyUser = async()=>{
         try {
             const token = localStorage.getItem('token');
-            const response = axios.get('http://localhost:8000/api/auth/verify',{
+            const response = axios.get('`${BASE_URL}/api/auth/verify',{
                 headers:{
                     "Authorization":`Bearer ${token}`
                 }
@@ -51,7 +52,7 @@ const AuthContext = ({children})  =>{
         
     }
 
-   return  <userContext.Provider value={{user,login,logout,loading}}>{children}</userContext.Provider>
+   return  <userContext.Provider value={{user,login,logout,loading,BASE_URL}}>{children}</userContext.Provider>
 };
 const useAuth=()=>{
     return useContext(userContext);

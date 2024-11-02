@@ -4,8 +4,10 @@ import { columns, DepartmetButtons } from "../../utils/DepartmentHelpers";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { useAuth } from "../../Context/authContext";
 
 const DepartmentList = () => {
+    const {BASE_URL} = useAuth();
     const [departments, setDepartments] = useState([]);
     const [depLoading, setDepLoading] = useState(false);
    const [filtereredDepartment,setFilteredDepartment] = useState([]);
@@ -20,7 +22,7 @@ const DepartmentList = () => {
    const fetchDepartments = async () => {
     setDepLoading(true);
     try {
-        const response = await axios.get('http://localhost:8000/api/department', {
+        const response = await axios.get(`${BASE_URL}/api/department`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }

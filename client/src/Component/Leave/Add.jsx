@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const Add = () => {
-    const { user } = useAuth();
+    const { user,BASE_URL } = useAuth();
     const navigate = useNavigate();
     const [leave, setLeave] = useState({
         userId: user._id,
@@ -17,7 +17,7 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:8000/api/leave/add`,leave, {
+            const response = await axios.post(`${BASE_URL}/api/leave/add`,leave, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }
