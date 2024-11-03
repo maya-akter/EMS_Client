@@ -63,6 +63,8 @@ export const columns = [
         });
         if (response.data.success) {
             departments= response.data.departments;
+            console.log("departmets:",departments);
+            
         }
     } catch (error) {
         if (error.response && !error.response.data.error) {
