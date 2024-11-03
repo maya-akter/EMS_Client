@@ -63,7 +63,7 @@ export const columns = [
         });
         if (response.data.success) {
             departments= response.data.departments;
-            console.log("departmets:",departments);
+            console.log("departmets:");
             
         }
     } catch (error) {
