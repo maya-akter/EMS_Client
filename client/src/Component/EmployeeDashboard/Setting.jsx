@@ -8,7 +8,7 @@ import styled from "styled-components";
 const Setting = () => {
 
     const navigate = useNavigate();
-    const { user,base_url } = useAuth();
+    const { user ,base_url} = useAuth();
     const [setting, setSetting] = useState({
         userId: user._id,
         oldPassword: '',

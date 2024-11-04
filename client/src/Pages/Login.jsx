@@ -12,7 +12,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login ,base_url} = useAuth();
+    const { login,base_url } = useAuth();
     const [error, setError] = useState(null);
     const [user, setUser] = useState({
         email: '',
@@ -61,7 +61,7 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                     <div className='d-flex flex-column align-items-center mb-4 user-div'>
                         <FaUser className='userIcon'/>
-                        <p>Employee Managment Systemm </p>
+                        <p>Employee Managment System </p>
                         <p className='mt-3'> <RiErrorWarningLine />
                             <span className='organizer_email '>Sign in with your organizational Email</span></p>
                     </div>

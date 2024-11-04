@@ -6,7 +6,7 @@ import { useAuth } from "../../Context/authContext";
 
 
 const View = () => {
-    const{base_url} = useAuth();
+    const {base_url} = useAuth();
     const { id } = useParams();
     const [employee, setEmployee] = useState([]);
     useEffect(() => {

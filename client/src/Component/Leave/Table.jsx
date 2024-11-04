@@ -9,7 +9,7 @@ import { useAuth } from "../../Context/authContext";
 
 const Table = () => {
     const [leaves, setLeaves] = useState(null);
-   const {base_url} = useAuth();
+    const {base_url} = useAuth();
 
     const fetchLeaves = async () => {
         try {
@@ -35,7 +35,7 @@ const Table = () => {
                             ? new Date(leave.endDate).getDate() - new Date(leave.startDate).getDate()
                             : 0,
                         status: leave?.status,
-                        action: <LeaveButtons Id={leave._id} />
+                        action: <LeaveButtons id={leave._id} />
 
                     }
                 ));
@@ -75,7 +75,7 @@ const Table = () => {
                         <div>
                             <DataTable columns={column} data={leaves} pagination />
                         </div>
-                    </div >
+                    </div> 
                 ) : (<div>Loading...</div>)}
         </>
     );

@@ -3,7 +3,6 @@ import { useAuth } from "../Context/authContext";
 import Adminsidebar from "../Component/Dashboard/Adminsidebar";
 import Navbar from "../Component/Dashboard/Navbar";
 
-
 const AdminDashboard = () => {
     const {user,loading} = useAuth();
     const navigate = useNavigate();

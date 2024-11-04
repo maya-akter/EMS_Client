@@ -7,7 +7,7 @@ import { useAuth } from "../../Context/authContext";
 
 
 const AdminSummery = () => {
-  const {base_url} = useAuth();
+   const {base_url} = useAuth();
    const [summary, setSummary] = useState(null);
 
    useEffect(() => {

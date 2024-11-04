@@ -6,6 +6,7 @@ import { FaTachometerAlt, FaBuilding, FaUsers, FaCogs, FaMoneyBillWave } from "r
 import { useAuth } from "../../Context/authContext";
 import styled from "styled-components";
 
+
 // employee sidebar
 const Sidebar = () => {
     const { user } = useAuth();

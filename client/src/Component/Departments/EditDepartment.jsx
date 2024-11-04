@@ -5,6 +5,7 @@ import { useAuth } from "../../Context/authContext";
 
 
 const EditDepartment = () => {
+
     const {base_url} = useAuth();
     const { id } = useParams();
     const [department, setDepartment] = useState([]);

@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { useAuth } from "../../Context/authContext";
 
 const List = () => {
-    const{base_url} = useAuth();
+    const {base_url} = useAuth();
     const [employees, setEmployees] = useState([]);
     const [empLoading, setEmpLoading] = useState(false);
     const [filterdEmp,setFilterdEmp] = useState([]);

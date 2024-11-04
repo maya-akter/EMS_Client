@@ -88,7 +88,7 @@ const View = () => {
                                 ) : <div className="d-flex justify-content-center m-auto fs-5 text-danger align-items-center">NO RECORDS</div>
                             }
                         </div>
-                    </Wrapper >
+                    </Wrapper>
                 )
             }
         </>
