@@ -34,7 +34,7 @@ const DepartmentList = () => {
                     _id: dep._id,
                     sno: sno++,
                     dep_name: dep.dep_name,
-                    action: (<DepartmetButtons _id={dep._id} onDepartmentDelete={onDepartmentDelete}/>)
+                    action: (<DepartmetButtons _id={dep._id}  onDepartmentDelete={onDepartmentDelete} BASE_URL={BASE_URL}/>)
                 }
             ));
             setDepartments(data);

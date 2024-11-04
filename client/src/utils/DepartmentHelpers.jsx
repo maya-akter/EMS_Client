@@ -4,7 +4,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useAuth } from "../Context/authContext";
+
 
 
 
@@ -27,8 +27,8 @@ export const columns = [
 
 
 
-export const DepartmetButtons = ({ _id, onDepartmentDelete }) => {
-    const {BASE_URL} = useAuth();
+export const DepartmetButtons = ({ _id, onDepartmentDelete,BASE_URL }) => {
+    
     const navigate = useNavigate();
     const handleDelet = async (id) => {
         const confirm = window.confirm("do you want to delet it?");
@@ -73,5 +73,6 @@ const Wrapper=styled.div`
  
 DepartmetButtons.propTypes = {
     _id: PropTypes.node,
-    onDepartmentDelete: PropTypes.node
+    onDepartmentDelete: PropTypes.node,
+    BASE_URL: PropTypes.node,
 };
