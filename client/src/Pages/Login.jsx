@@ -61,7 +61,7 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                     <div className='d-flex flex-column align-items-center mb-4 user-div'>
                         <FaUser className='userIcon'/>
-                        <p>Employee Managment System </p>
+                        <p>Employee Managment Systemm </p>
                         <p className='mt-3'> <RiErrorWarningLine />
                             <span className='organizer_email '>Sign in with your organizational Email</span></p>
                     </div>
