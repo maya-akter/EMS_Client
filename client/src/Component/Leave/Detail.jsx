@@ -7,7 +7,7 @@ import { useAuth } from "../../Context/authContext";
 
 
 const Detail = () => {
-    const{BASE_URL} = useAuth();
+    const{base_url} = useAuth();
     const { id } = useParams();
     console.log(id);
     
@@ -16,7 +16,7 @@ const Detail = () => {
         const fetchLeave = async () => {
 
             try {
-                const response = await axios.get(`${BASE_URL}/api/leave/detail/${id}`, {
+                const response = await axios.get(`${base_url}/api/leave/detail/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -45,7 +45,7 @@ const Detail = () => {
                     <h2 className="text-center m-4">Employee Details</h2>
                     <div className="d-flex align-items-center p-5 mt-5 emp_view">
                         <div className="m-5">
-                            <img className="emp_image" src={`${BASE_URL}/${leave?.employeeId?.userId?.profileImage || 'default.png'}`} alt="Profile" />
+                            <img className="emp_image" src={`${base_url}/${leave?.employeeId?.userId?.profileImage || 'default.png'}`} alt="Profile" />
                         </div>
                         <div className="mx-4">
                             <p>Name: <span>{leave?.employeeId?.userId?.name || 'N/A'}</span></p>

@@ -10,10 +10,10 @@ const View = () => {
     const [filteredSalaries, setFilteredSalarier] = useState(null);
     const { id } = useParams();
     let sno = 1;
-    const { user,BASE_URL } = useAuth();
+    const { user,base_url } = useAuth();
     const fetchSalaries = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/salary/${id}/${user.role}`, {
+            const response = await axios.get(`${base_url}/api/salary/${id}/${user.role}`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

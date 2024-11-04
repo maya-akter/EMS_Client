@@ -10,7 +10,7 @@ import { Button } from "../../Styles/Button";
 import { useAuth } from "../../Context/authContext";
 
 const Add = () => {
-    const {BASE_URL} = useAuth();
+    const {base_url} = useAuth();
     const navigate = useNavigate();
     const [salary, setSalary] = useState({
         employeeId: null,
@@ -27,7 +27,7 @@ const Add = () => {
 
     useEffect(() => {
         const getDepartments = async () => {
-            const departments = await fetchDepartments(BASE_URL);
+            const departments = await fetchDepartments(base_url);
             setDepartments(departments);
         }
         getDepartments();
@@ -52,7 +52,7 @@ const Add = () => {
 
 
         try {
-            const response = await axios.post(`${BASE_URL}/api/salary/add`, salary, {
+            const response = await axios.post(`${base_url}/api/salary/add`, salary, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }
@@ -72,7 +72,7 @@ const Add = () => {
 
     const handleDepartment = async (e) => {
         const departmentId = e.target.value;
-        const emps = await getEmployees(departmentId,BASE_URL);
+        const emps = await getEmployees(departmentId,base_url);
         setEmployees(emps);
         console.log("Employees set in state:", emps); // Log the state data
     };

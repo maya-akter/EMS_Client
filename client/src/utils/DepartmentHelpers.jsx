@@ -27,14 +27,14 @@ export const columns = [
 
 
 
-export const DepartmetButtons = ({ _id, onDepartmentDelete,BASE_URL }) => {
+export const DepartmetButtons = ({ _id, onDepartmentDelete,base_url }) => {
     
     const navigate = useNavigate();
     const handleDelet = async (id) => {
         const confirm = window.confirm("do you want to delet it?");
         if(confirm){
             try {
-                const response = await axios.delete(`${BASE_URL}/api/department/${id}`, {
+                const response = await axios.delete(`${base_url}/api/department/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -74,5 +74,5 @@ const Wrapper=styled.div`
 DepartmetButtons.propTypes = {
     _id: PropTypes.node,
     onDepartmentDelete: PropTypes.node,
-    BASE_URL: PropTypes.node,
+    base_url: PropTypes.node,
 };

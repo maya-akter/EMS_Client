@@ -8,7 +8,7 @@ import styled from "styled-components";
 const Setting = () => {
 
     const navigate = useNavigate();
-    const { user,BASE_URL } = useAuth();
+    const { user,base_url } = useAuth();
     const [setting, setSetting] = useState({
         userId: user._id,
         oldPassword: '',
@@ -33,7 +33,7 @@ const Setting = () => {
             setError("Password not matched");
         } else {
             try {
-                const response = await axios.put(`${BASE_URL}/api/setting/change-password`,
+                const response = await axios.put(`${base_url}/api/setting/change-password`,
                     setting,
                     {
                         headers: {

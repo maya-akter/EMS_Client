@@ -12,7 +12,7 @@ import { RiErrorWarningLine } from "react-icons/ri";
 
 const Login = () => {
     const navigate = useNavigate();
-    const { login ,BASE_URL} = useAuth();
+    const { login ,base_url} = useAuth();
     const [error, setError] = useState(null);
     const [user, setUser] = useState({
         email: '',
@@ -31,7 +31,7 @@ const Login = () => {
 
         e.preventDefault();
         try {
-            const response = await axios.post(`${BASE_URL}/api/auth/login`, user);
+            const response = await axios.post(`${base_url}/api/auth/login`, user);
 
             if (response.data.success) {
                 alert('Success');

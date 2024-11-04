@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { useAuth } from "../../Context/authContext";
 
 const DepartmentList = () => {
-    const {BASE_URL} = useAuth();
+    const {base_url} = useAuth();
     const [departments, setDepartments] = useState([]);
     const [depLoading, setDepLoading] = useState(false);
    const [filtereredDepartment,setFilteredDepartment] = useState([]);
@@ -22,7 +22,7 @@ const DepartmentList = () => {
    const fetchDepartments = async () => {
     setDepLoading(true);
     try {
-        const response = await axios.get(`${BASE_URL}/api/department`, {
+        const response = await axios.get(`${base_url}/api/department`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
@@ -34,7 +34,7 @@ const DepartmentList = () => {
                     _id: dep._id,
                     sno: sno++,
                     dep_name: dep.dep_name,
-                    action: (<DepartmetButtons _id={dep._id}  onDepartmentDelete={onDepartmentDelete} BASE_URL={BASE_URL}/>)
+                    action: (<DepartmetButtons _id={dep._id}  onDepartmentDelete={onDepartmentDelete} base_url={base_url}/>)
                 }
             ));
             setDepartments(data);

@@ -9,11 +9,11 @@ import { useAuth } from "../../Context/authContext";
 
 const Table = () => {
     const [leaves, setLeaves] = useState(null);
-   const {BASE_URL} = useAuth();
+   const {base_url} = useAuth();
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/leave`, {
+            const response = await axios.get(`${base_url}/api/leave`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

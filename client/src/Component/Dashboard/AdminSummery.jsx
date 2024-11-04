@@ -7,13 +7,13 @@ import { useAuth } from "../../Context/authContext";
 
 
 const AdminSummery = () => {
-  const {BASE_URL} = useAuth();
+  const {base_url} = useAuth();
    const [summary, setSummary] = useState(null);
 
    useEffect(() => {
       const fetchSummary = async () => {
          try {
-            const summary = await axios.get(`${BASE_URL}/api/dashboard/summary`, {
+            const summary = await axios.get(`${base_url}/api/dashboard/summary`, {
                headers: {
                   "Authorization": `Bearer ${localStorage.getItem('token')}`
                }

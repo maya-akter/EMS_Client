@@ -6,14 +6,14 @@ import { useAuth } from "../../Context/authContext";
 
 
 const View = () => {
-    const{BASE_URL} = useAuth();
+    const{base_url} = useAuth();
     const { id } = useParams();
     const [employee, setEmployee] = useState([]);
     useEffect(() => {
         const fetchEmployee = async () => {
 
             try {
-                const response = await axios.get(`${BASE_URL}/api/employee/${id}`, {
+                const response = await axios.get(`${base_url}/api/employee/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -40,7 +40,7 @@ const View = () => {
 
             <div className="d-flex align-items-center p-5 mt-5 emp_view">
                 <div className="m-5">
-                    <img className="emp_image" src={`${BASE_URL}/${employee.userId?.profileImage}`} alt="" />
+                    <img className="emp_image" src={`${base_url}/${employee.userId?.profileImage}`} alt="" />
                 </div>
                 <div className="mx-4">
                     <div>

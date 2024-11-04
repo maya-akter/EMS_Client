@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { useAuth } from "../../Context/authContext";
 
 const Edit = () => {
-    const {BASE_URL} = useAuth();
+    const {base_url} = useAuth();
     const navigate = useNavigate();
     const [employee, setEmployee] = useState({
         name: '',
@@ -27,7 +27,7 @@ const Edit = () => {
 
     useEffect(() => {
         const getDepartments = async () => {
-            const departments = await fetchDepartments(BASE_URL);
+            const departments = await fetchDepartments(base_url);
             setDepartments(departments);
         }
         getDepartments();
@@ -38,7 +38,7 @@ const Edit = () => {
         const fetchEmployee = async () => {
 
             try {
-                const response = await axios.get(`${BASE_URL}/api/employee/${id}`, {
+                const response = await axios.get(`${base_url}/api/employee/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -86,7 +86,7 @@ const Edit = () => {
 
 
         try {
-            const response = await axios.put(`${BASE_URL}/api/employee/${id}`, employee, {
+            const response = await axios.put(`${base_url}/api/employee/${id}`, employee, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

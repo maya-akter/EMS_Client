@@ -5,7 +5,7 @@ import { useAuth } from "../../Context/authContext";
 
 
 const EditDepartment = () => {
-    const {BASE_URL} = useAuth();
+    const {base_url} = useAuth();
     const { id } = useParams();
     const [department, setDepartment] = useState([]);
     const [depLoading, setDepLoading] = useState(false);
@@ -14,7 +14,7 @@ const EditDepartment = () => {
         const fetchDepartments = async () => {
             setDepLoading(true);
             try {
-                const response = await axios.get(`${BASE_URL}/api/department/${id}`, {
+                const response = await axios.get(`${base_url}/api/department/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -42,7 +42,7 @@ const EditDepartment = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
-        const response = await axios.put(`${BASE_URL}/api/department/${id}`,department,{
+        const response = await axios.put(`${base_url}/api/department/${id}`,department,{
             headers:{
                 "Authorization":`Bearer ${localStorage.getItem('token')}`
             }
