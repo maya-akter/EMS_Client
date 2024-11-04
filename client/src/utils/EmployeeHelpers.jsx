@@ -2,7 +2,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useAuth } from "../Context/authContext";
+
 
 
 
@@ -52,8 +52,8 @@ export const columns = [
 
 
 
- export const  fetchDepartments = async () => {
-    const {BASE_URL} = useAuth;
+ export const  fetchDepartments = async (BASE_URL) => {
+ 
    let departments = [];
     try {
         const response = await axios.get(`${BASE_URL}/api/department`, {
@@ -95,8 +95,8 @@ export const columns = [
 //      } 
 //      return employees;
 //  } 
-export const getEmployees = async (id) => {
-    const {BASE_URL} = useAuth;
+export const getEmployees = async (id,BASE_URL) => {
+    
     let employees = [];
     try {
         const response = await axios.get(`${BASE_URL}/api/employee/department/${id}`, {

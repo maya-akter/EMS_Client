@@ -27,7 +27,7 @@ const Add = () => {
 
     useEffect(() => {
         const getDepartments = async () => {
-            const departments = await fetchDepartments();
+            const departments = await fetchDepartments(BASE_URL);
             setDepartments(departments);
         }
         getDepartments();
@@ -72,7 +72,7 @@ const Add = () => {
 
     const handleDepartment = async (e) => {
         const departmentId = e.target.value;
-        const emps = await getEmployees(departmentId);
+        const emps = await getEmployees(departmentId,BASE_URL);
         setEmployees(emps);
         console.log("Employees set in state:", emps); // Log the state data
     };

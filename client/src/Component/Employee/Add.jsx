@@ -15,7 +15,7 @@ const Add = () => {
 
     useEffect(() => {
         const getDepartments = async () => {
-            const departments = await fetchDepartments();
+            const departments = await fetchDepartments(BASE_URL);
             setDepartments(departments);
         }
         getDepartments();
