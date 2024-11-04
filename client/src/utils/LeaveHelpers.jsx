@@ -47,14 +47,16 @@ export const column=[
 
 
 
-export const LeaveButtons=(Id)=>{
+export const LeaveButtons=(id)=>{
+    console.log(id);
+    
  const navigate = useNavigate();
  const handleview=(id)=>{
     navigate(`/admin-dashboard/leaves/${id}`);
  }
 
 return(
-    <button className="btn btn-success" onClick={()=>handleview(Id)}>View</button>
+    <button className="btn btn-success" onClick={()=>handleview(id)}>View</button>
 )
 
 

@@ -8,8 +8,11 @@ import { createContext, useContext,useEffect,useState } from 'react';
 
 const userContext = createContext();
 const AuthContext = ({children})  =>{
-    // const base_url = `http://localhost:8000`;
-    const base_url = `https://ems-server-seven.vercel.app`;
+
+    // const base_url = window.location.origin;
+    const base_url =`http://localhost:3000` ;
+
+
     const [user,setUser] = useState(null);
     const [loading,setLoading] = useState(true);
   useEffect(()=>{
@@ -18,7 +21,7 @@ const AuthContext = ({children})  =>{
             const token = localStorage.getItem('token');
             const response = axios.get(`${base_url}/api/auth/verify`,{
                 headers:{
-                    "Authorization":`Bearer ${token}`
+                "Authorization":`Bearer ${token}`
                 }
             })
             if(response.data.success){
